@@ -13,13 +13,13 @@ for (i = 0; i < todoList.length; i++) {
   todoList[i].appendChild(span);
 }
 
-// Piilota kohde listasta
-var hide = document.getElementsByClassName("deleteButton");
+// Poista kohde listasta
+var del = document.getElementsByClassName("deleteButton");
 var i;
-for (i = 0; i < hide.length; i++) {
-    hide[i].onclick = function() {
+for (i = 0; i < del.length; i++) {
+    del[i].onclick = function() {
         var div = this.parentNode;
-        div.style.display = "none";
+        div.parentNode.removeChild(div);
     }
 }
 
@@ -48,12 +48,12 @@ function newLine() {
     var txt = document.createTextNode("X");
     span.className = "deleteButton";
     span.appendChild(txt);
-    todoList[i].appendChild(span);
+    li.appendChild(span);
 
-    for (i = 0; i < hide.length; i++) {
-        hide[i].onclick = function() {
+    for (i = 0; i < del.length; i++) {
+        del[i].onclick = function() {
           var div = this.parentNode;
-          div.style.display = "none";
+          div.parentNode.removeChild(div);
         }
     }
 }
